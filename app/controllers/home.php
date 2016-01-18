@@ -3,17 +3,17 @@
 class Home extends Controller
 {
 
-	public function index($name = '', $otherName = '')
+	public function index($name = ' ')
 	{
-		echo $name. " ". $otherName;
-
-	}
-
-	public function test()
-	{
-		echo "test";
+		$user = $this->model('User');
+		$user->name = $name;
 		
+		$this->view('/home/index', ['name' => $user->name]);
+
+
+
 	}
+
 }
 
 ?>
